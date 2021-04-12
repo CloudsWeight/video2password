@@ -4,7 +4,7 @@ data and see if it unlocks any doors.  Good luck!
 
 Details: Import moviepy and SpeechRecognition to pull that data.  Translate the
 video into audio files, then translate the audio into text, then output the
-results to a custom file.
+text to a custom file.
 
     Acceptable Video Formats:
         MP4 (mp4, m4a, m4v, f4v, f4a, m4b, m4r, f4b, mov)
