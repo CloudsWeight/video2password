@@ -11,7 +11,7 @@ data and see if it unlocks any doors.  Good luck!
 
 Author: Nick Sepe
 '''
-
 import convertClip as cc
 # make sure the file you pass is in the same directory
-cc.convert("speech.mp4")
+data = input("What is the name of your file? (include extension)"):
+cc.convert(data)
