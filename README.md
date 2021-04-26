@@ -1,9 +1,8 @@
 # video2password
 
-Work in progress.
+Work in progress.  Video -> Audio -> Text -> rockyou.txt  
 
 Requires: moviepy  easiest way to get it: pip3 install moviepy
-Video -> Audio -> Text -> rockyou.txt  
 
 Input video and use the transcript produced to write a plausible password list file.
 
