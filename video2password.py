@@ -13,5 +13,5 @@ Author: Nick Sepe
 '''
 import convertClip as cc
 # make sure the file you pass is in the same directory
-data = input("What is the name of your file? (include extension)"):
+data = input("What is the name of your file? (include extension):")
 cc.convert(data)
