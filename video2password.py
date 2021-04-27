@@ -9,7 +9,7 @@ data and see if it unlocks any doors.  Good luck!
         OGG (ogg, oga, ogv, ogx)
         WMV (wmv, wma, asf*)
 
-Author: Nick Sepe
+Author: Blenno
 '''
 import convertClip as cc
 # make sure the file you pass is in the same directory
