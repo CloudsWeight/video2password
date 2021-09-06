@@ -12,6 +12,6 @@ Acceptable Video Formats:
         OGG (ogg, oga, ogv, ogx)
         WMV (wmv, wma, asf*)
 
-Sample output from the include .mp4 is: ["spears spears once on a pain the suffering in the discomfort something that's why everybody raised their hands my ", "do you have it was not a big thing because you remember what that's it ", "but then there's another thing ", 'Hey Lori this cold if you could find a way to push to paying ', 'and and and never stopping ', 'first ']
+Sample output from the included pain.mp4 is: ["spears spears once on a pain the suffering in the discomfort something that's why everybody raised their hands my ", "do you have it was not a big thing because you remember what that's it ", "but then there's another thing ", 'Hey Lori this cold if you could find a way to push to paying ', 'and and and never stopping ', 'first ']
 
 The quality of translation of course depends on the speech quality of the video file but there are different accent Language Models available with IBM speech to text.
