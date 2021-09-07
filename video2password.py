@@ -1,30 +1,31 @@
 '''                  Video 2 Password
 
-Desscription:  Program takes a video, converts it to .mp3. 
+Desscription:  Program takes a video, converts it to .mp3.
 Then translates the speech in the .mp3 to a text list, currently.  More plans in the future.
 This is a working version that will need an [ apikey = ] and a [ url = ] to access resources.
-
     Acceptable Video Formats:
         MP4 (mp4, m4a, m4v, f4v, f4a, m4b, m4r, f4b, mov)
         3GP (3gp, 3gp2, 3g2, 3gpp, 3gpp2)
         OGG (ogg, oga, ogv, ogx)
         WMV (wmv, wma, asf*)
-        
+
 Author: Nick Sepe
+
 
 '''
 import moviepy.editor as mp #convert_to_audio dep
 #from cloud_convert import speech_to_text as stt
-from ibm_watson import SpeechToTextV1
+from ibm_watson import SpeechToTextV1 #cloud speech to text requires apikey and url
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
-
-#import os
+from os.path import dirname, abspath
+from pathlib import Path
 
 def convert_to_audio(file, name_of_audio): # Use moviepy to convert audio
     clip = mp.VideoFileClip(file)
     clip.audio.write_audiofile(name_of_audio+".mp3")
     speech = (name_of_audio+".mp3")
-    print("Your new file \"" + speech + "\" is stored in the same folder as this script now.")
+    d1 = Path().resolve().parent
+    print(f'Your new file "{speech}" is stored in PATH {d1}')
     return str(speech)
 
 #def convert_to_speech(speech): # IBM Watson Text to Speech function
@@ -43,10 +44,19 @@ def speech_to_text(speech) -> object: # this will be a string variable of audio 
     with open(speech, 'rb') as f:
         res = stt.recognize(audio=f, content_type='audio/mp3', model='en-US_NarrowbandModel', continuous=True).get_result()
     text=[]
+    text_file = open("Transcript.txt","a")
     for result in res['results']:
         text.append(result['alternatives'][0]['transcript'])
-    print(text)
-    
+        text.append("\r")
+    text_file.writelines(text)
+    return text  # returns a list
+
+def ttf(list): # to text file
+    text_file = open("Transcript.txt", "w")
+    text_file.writelines(list)
+    d = dirname(dirname(abspath("Transcript.txt")))
+    print(f"File \"{text_file.name}\" is stored in PATH {d}")
+
 def banner(): # hello
     print("################################################################################")
     print("#       [  Video2Password: Convert a video to a password file.  ]              #")
@@ -68,7 +78,8 @@ def main():
     data = get_file()
     name = name_file()
     speech = convert_to_audio(data, name)
-    speech_to_text(speech)
+    list = speech_to_text(speech)
+    ttf(list)
 
 if __name__ == '__main__':
     main()
