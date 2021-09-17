@@ -1,4 +1,4 @@
-# video2password
+# Video to Password
 
 Work in progress.  Video -> Audio -> Text -> rockyou.txt  
 
@@ -16,7 +16,9 @@ Sample output from the included pain.mp4 is: ["spears spears once on a pain the 
 
 The quality of translation of course depends on the speech quality of the video file but there are different accent Language Models available with IBM speech to text.
 
-# Technology:
+# Technology
 * IBM cloud API
 * moviepy
 
+# To Do
+* convert to classes 
